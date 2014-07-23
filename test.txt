@@ -27,3 +27,22 @@ price	//div[@class='book_shoplist']//div[@class='inner']/p[@class='price']/span[
 name	//div[@id='J_ItemList']//div[@class='product-iWrap']//p[@class='productTitle']
 price	//div[@id='J_ItemList']//div[@class='product-iWrap']//p[@class='productPrice']//em[@title]
 子网	//div[@id='J_ItemList']//div[@class='product-iWrap']//p[@class='productTitle']//@href
+
+##一号店
+;;url	http://www.yhd.com/ctg/s2/c21969-0/?tc=0.0.16.CatMenu_Site_100000003_6884_784.1699&tp=1.0.15.0.1084.TNr4As
+name	//div[@id='plist']//p[@class='title']
+price	//div[@id='plist']//div[@class='pricebox clearfix']/span[@yhdprice]
+子网	//div[@id='plist']//p[@class='title']//@href
+
+##国美
+;;url	http://www.gome.com.cn/category/cat10000054.html
+name	//div[@class='result-wrap ']//h2[@class='name']//a[@title]
+price	//div[@id='plist']//div[@class='pricebox clearfix']/span[@yhdprice]
+子网	//div[@id='plist']//p[@class='title']//@href
+
+##易迅
+;;url	http://searchex.yixun.com/html?YTAG=2.1159614045055&&attr=55e7543&path=705882t705894&area=1
+name	//div[@class='goods']//div[@class='mod_goods_info']//p[@class='mod_goods_tit']
+price	//div[@class='goods']//div[@class='mod_goods_info']/p[@class='mod_goods_price']//span[@class='mod_price']/span
+子网	//div[@class='goods']//div[@class='mod_goods_info']//p[@class='mod_goods_tit']//@href
+

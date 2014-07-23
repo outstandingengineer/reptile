@@ -20,7 +20,10 @@ public class main {
 //		amazon();
 //		dangdang();
 //		suning2();
-		tmall();
+//		tmall();
+//		yhd();
+//		guomei();
+		yixun();
 		}
 	
 	public static void jingdong() throws Exception {
@@ -33,7 +36,7 @@ public class main {
 		final HtmlDivision price = (HtmlDivision) page.getByXPath("//div[@id='plist']//div[@class='p-price']").get(i);
 		final HtmlElement href=(HtmlElement) name.getElementsByTagName("a").get(0);
 		String link=href.getAttribute("href");
-		System.out.println(name.asText()+"---" +price.asText()+"i de "+i+" "+link);
+		System.out.println(name.asText()+"---" +price.asText()+"  link  "+link);
 		webClient.closeAllWindows();
 		}
 	}
@@ -47,7 +50,7 @@ public class main {
 			final HtmlElement price = (HtmlElement) page.getByXPath("//div[@class='catepro cateproA mt40']//p[@class='priceline']").get(i);
 			final HtmlElement href=(HtmlElement) name.getElementsByTagName("a").get(0);
 			String link=href.getAttribute("href");
-			System.out.println(name.asText()+"---" +price.asText()+"link"+link);
+			System.out.println(name.asText()+"---" +price.asText()+"  link  "+link);
 			webClient.closeAllWindows();
 		}
 	}
@@ -62,7 +65,7 @@ public class main {
 			final HtmlElement link = (HtmlElement) page.getByXPath("//div[@id='mainResults']//h3[@class='newaps']").get(i);
 			final HtmlElement href=(HtmlElement) link.getElementsByTagName("a").get(0);
 			String link2=href.getAttribute("href");
-			System.out.println(name.asText()+"---" +price.asText()+link2);
+			System.out.println(name.asText()+"---" +price.asText()+"  link  "+link2);
 			webClient.closeAllWindows();
 		}
 	}
@@ -76,7 +79,7 @@ public class main {
 			final HtmlElement price = (HtmlElement) page.getByXPath("//div[@class='book_shoplist']//div[@class='inner']/p[@class='price']/span[@class='price_n']").get(i);
 			final HtmlElement href=(HtmlElement) name.getElementsByTagName("a").get(0);
 			String link2=href.getAttribute("href");
-			System.out.println(name.asText()+"---" +price.asText()+link2);
+			System.out.println(name.asText()+"---" +price.asText()+"  link  "+link2);
 			webClient.closeAllWindows();
 		}
 	}
@@ -121,11 +124,59 @@ public class main {
 			final HtmlElement price = (HtmlElement) page.getByXPath("//div[@id='J_ItemList']//div[@class='product-iWrap']//p[@class='productPrice']//em[@title]").get(i);
 			final HtmlElement href=(HtmlElement) name.getElementsByTagName("a").get(0);
 			String link=href.getAttribute("href");
-			System.out.println(name.asText()+"---" +price.asText()+"link"+link);
+			System.out.println(name.asText()+"---" +price.asText()+"  link  "+link);
 			webClient.closeAllWindows();
 		}
 	}
+	
+	public static void yhd() throws Exception {
+		final WebClient webClient=new WebClient(BrowserVersion.CHROME);
+		webClient.getOptions().setJavaScriptEnabled(false);
+		webClient.getOptions().setCssEnabled(false);
+		HtmlPage page = (HtmlPage) webClient.getPage("http://www.yhd.com/ctg/s2/c21969-0/?tc=0.0.16.CatMenu_Site_100000003_6884_784.1699&tp=1.0.15.0.1084.TNr4As");
+		for(int i=0;i<(page.getByXPath("//div[@id='plist']//p[@class='title']").size());i++){
+			final HtmlElement name = (HtmlElement) page.getByXPath("//div[@id='plist']//p[@class='title']").get(i);
+			final HtmlElement price = (HtmlElement) page.getByXPath("//div[@id='plist']//div[@class='pricebox clearfix']/span[@yhdprice]").get(i);
+			final HtmlElement href=(HtmlElement) name.getElementsByTagName("a").get(0);
+			String link=href.getAttribute("href");
+			System.out.println(name.asText()+"---" +price.asText()+"  link  "+link);
+			webClient.closeAllWindows();
+		}
+		
+		
 	}
+	
+	
+	public static void guomei() throws Exception {
+		final WebClient webClient=new WebClient(BrowserVersion.CHROME);
+		webClient.getOptions().setJavaScriptEnabled(false);
+		webClient.getOptions().setCssEnabled(false);
+		HtmlPage page = (HtmlPage) webClient.getPage("http://www.gome.com.cn/category/cat10000054.html");
+		for(int i=0;i<(page.getByXPath("//div[@class='result-wrap ']//h2[@class='name']").size());i++){
+			final HtmlElement name = (HtmlElement) page.getByXPath("//div[@class='result-wrap ']//h2[@class='name']").get(i);
+			final HtmlElement price = (HtmlElement) page.getByXPath("//div[@class='result-wrap ']//p[@class='price-wrap']/span[@class='price']").get(i);
+			final HtmlElement href=(HtmlElement) name.getElementsByTagName("a").get(0);
+			String link=href.getAttribute("href");
+			System.out.println(name.asText()+"---" +price.asText()+"  link  "+link);
+			webClient.closeAllWindows();
+		}	
+	}
+	
+	public static void yixun() throws Exception {
+		final WebClient webClient=new WebClient(BrowserVersion.CHROME);
+		webClient.getOptions().setJavaScriptEnabled(false);
+		webClient.getOptions().setCssEnabled(false);
+		HtmlPage page = (HtmlPage) webClient.getPage("http://searchex.yixun.com/html?YTAG=2.1159614045055&&attr=55e7543&path=705882t705894&area=1");
+		for(int i=0;i<(page.getByXPath("	//div[@class='goods']//div[@class='mod_goods_info']//p[@class='mod_goods_tit']").size());i++){
+			final HtmlElement name = (HtmlElement) page.getByXPath("//div[@class='goods']//div[@class='mod_goods_info']//p[@class='mod_goods_tit']").get(i);
+			final HtmlElement price = (HtmlElement) page.getByXPath("//div[@class='goods']//div[@class='mod_goods_info']/p[@class='mod_goods_price']//span[@class='mod_price']/span").get(i);
+			final HtmlElement href=(HtmlElement) name.getElementsByTagName("a").get(0);
+			String link=href.getAttribute("href");
+			System.out.println(name.asText()+"---" +price.asText()+"  link  "+link);
+			webClient.closeAllWindows();
+		}	
+	}
+}
 
 	
 
