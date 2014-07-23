@@ -1,0 +1,3 @@
+##¿ªÊ¼
+;;url	http://list.suning.com/0-258004-0.html
+name	//div[@class='proListTile']//p[@class='price']//em
