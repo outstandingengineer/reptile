@@ -16,9 +16,9 @@ import org.apache.commons.logging.LogFactory;
 public class main {
 	public static void main(String args[]) throws Exception{
 //		jingdong();
-		xindan();
+//		xindan();
 //		amazon();
-//		dangdang();
+		dangdang();
 //		suning2();
 
 		}
@@ -59,7 +59,10 @@ public class main {
 		for(int i=0;i<(page.getByXPath("//div[@id='mainResults']//h3[@class='newaps']//span[@class='lrg']").size());i++){
 			final HtmlElement name = (HtmlElement) page.getByXPath("//div[@id='mainResults']//span[@class='lrg']").get(i);
 			final HtmlElement price = (HtmlElement) page.getByXPath("//div[@id='mainResults']//span[@class='bld lrg red']").get(i);
-			System.out.println(name.asText()+"---" +price.asText()+"i de "+i+" ");
+			final HtmlElement link = (HtmlElement) page.getByXPath("//div[@id='mainResults']//h3[@class='newaps']").get(i);
+			final HtmlElement href=(HtmlElement) link.getElementsByTagName("a").get(0);
+			String link2=href.getAttribute("href");
+			System.out.println(name.asText()+"---" +price.asText()+link2);
 			webClient.closeAllWindows();
 		}
 	}
@@ -68,10 +71,12 @@ public class main {
 		webClient.getOptions().setJavaScriptEnabled(false);
 		webClient.getOptions().setCssEnabled(false);
 		HtmlPage page = (HtmlPage) webClient.getPage("http://category.dangdang.com/cp01.05.16.00.00.00.html");
-		for(int i=0;i<(page.getByXPath("//div[@class='book_shoplist']//div[@class='inner']//p[@class='name']//a[@title]").size());i++){
-			final HtmlElement name = (HtmlElement) page.getByXPath("//div[@class='book_shoplist']//div[@class='inner']//p[@class='name']//a[@title]").get(i);
+		for(int i=0;i<(page.getByXPath("//div[@class='book_shoplist']//div[@class='inner']//p[@class='name']").size());i++){
+			final HtmlElement name = (HtmlElement) page.getByXPath("//div[@class='book_shoplist']//div[@class='inner']//p[@class='name']").get(i);
 			final HtmlElement price = (HtmlElement) page.getByXPath("//div[@class='book_shoplist']//div[@class='inner']/p[@class='price']/span[@class='price_n']").get(i);
-			System.out.println(name.asText()+"---" +price.asText());
+			final HtmlElement href=(HtmlElement) name.getElementsByTagName("a").get(0);
+			String link2=href.getAttribute("href");
+			System.out.println(name.asText()+"---" +price.asText()+link2);
 			webClient.closeAllWindows();
 		}
 	}
