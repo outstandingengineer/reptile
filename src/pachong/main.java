@@ -18,9 +18,9 @@ public class main {
 //		jingdong();
 //		xindan();
 //		amazon();
-		dangdang();
+//		dangdang();
 //		suning2();
-
+		tmall();
 		}
 	
 	public static void jingdong() throws Exception {
@@ -89,16 +89,17 @@ public class main {
 			final HtmlElement getlink = (HtmlElement) page.getByXPath("//div[@id='productTab']//div[@class='inforBg']").get(i);
 			final HtmlElement href=(HtmlElement) getlink.getElementsByTagName("a").get(0);
 			String link=href.getAttribute("href");
-			final WebClient webClient2=new WebClient(BrowserVersion.CHROME);
-			webClient.getOptions().setJavaScriptEnabled(false);
-			webClient.getOptions().setCssEnabled(false);
-			HtmlPage page2 = (HtmlPage) webClient2.getPage(link);
+			HtmlPage page2 = (HtmlPage) webClient.getPage(link);
 			final HtmlElement name = (HtmlElement) page2.getByXPath("//div[@class='product-info-box']//h2[@class='selling-points wb']").get(0);
 			final HtmlElement price = (HtmlElement) page2.getByXPath("//div[@class='product-info-box']//span[@class='main-price snPrice fl pdr5']").get(0);
 			System.out.println(name.asText()+"---" +price.asText());
 			webClient.closeAllWindows();
 		}
 	}
+	/*
+	 * 这个方法就是用来单独测试具体商品页面的数据挖掘
+	 * 还是失败
+	 */
 	public static void suning2() throws Exception {
 		final WebClient webClient=new WebClient(BrowserVersion.CHROME);
 		webClient.getOptions().setJavaScriptEnabled(false);
@@ -109,6 +110,22 @@ public class main {
 			System.out.println(name.asText()+"---" +price.asText());
 			webClient.closeAllWindows();
 		}
+	
+	public static void tmall() throws Exception {
+		final WebClient webClient=new WebClient(BrowserVersion.CHROME);
+		webClient.getOptions().setJavaScriptEnabled(false);
+		webClient.getOptions().setCssEnabled(false);
+		HtmlPage page = (HtmlPage) webClient.getPage("http://list.tmall.com/search_product.htm?spm=3.7396704.20000015.8.gVJ2G5&cat=50106434&sort=s&acm=tt-1143089-37249.1003.8.79822&from=sn_1_cat&pos=4&shopType=any&style=g&search_condition=55&industryCatId=50025829&active=1&uuid=79822&scm=1003.8.tt-1143089-37249.OTHER_1405292594731_79822#J_crumbs");
+		for(int i=0;i<(page.getByXPath("//div[@id='J_ItemList']//div[@class='product-iWrap']//p[@class='productTitle']").size());i++){
+			final HtmlElement name = (HtmlElement) page.getByXPath("//div[@id='J_ItemList']//div[@class='product-iWrap']//p[@class='productTitle']").get(i);
+			final HtmlElement price = (HtmlElement) page.getByXPath("//div[@id='J_ItemList']//div[@class='product-iWrap']//p[@class='productPrice']//em[@title]").get(i);
+			final HtmlElement href=(HtmlElement) name.getElementsByTagName("a").get(0);
+			String link=href.getAttribute("href");
+			System.out.println(name.asText()+"---" +price.asText()+"link"+link);
+			webClient.closeAllWindows();
+		}
 	}
+	}
+
 	
 
