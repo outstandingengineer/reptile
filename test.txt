@@ -1,0 +1,5 @@
+##开始
+;;url	http://list.jd.com/list.html?cat=670,671,672
+name	//div[@id='plist']//div[@class='p-name']
+price	//div[@id='plist']//div[@class='p-price']
+服务商	//div[@id='plist']//div[@class='p-name']//@href	//div[@id='product-intro']//li[@id='summary-service']/div[@class='dd']
