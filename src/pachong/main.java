@@ -33,8 +33,9 @@ public class main {
 		webClient.getOptions().setCssEnabled(false);
 		HtmlPage page = (HtmlPage) webClient.getPage("http://list.jd.com/list.html?cat=670,671,672");
 		for(int i=0;i<(page.getByXPath("//div[@id='plist']//div[@class='p-name']").size());i++){
-		final HtmlDivision price = (HtmlDivision) page.getByXPath("//div[@id='plist']//div[@class='p-price']").get(i);
-		final HtmlDivision name = (HtmlDivision) page.getByXPath("//div[@id='plist']//div[@class='p-name']").get(i);
+			final HtmlDivision name = (HtmlDivision) page.getByXPath("//div[@id='plist']//div[@class='p-name']").get(i);
+			final HtmlDivision price = (HtmlDivision) page.getByXPath("//div[@id='plist']//div[@class='p-price']").get(i);
+		
 		final HtmlElement href=(HtmlElement) name.getElementsByTagName("a").get(0);
 		String link=href.getAttribute("href");
 		System.out.println(name.asText()+"---" +price.asText()+"  link  "+link);
