@@ -1,0 +1,5 @@
+##ÐÂµ°
+;;url	http://www.newegg.cn/SubCategory/615.htm
+name	//div[@class='catepro cateproA mt40']//p[@class='title']
+price	//div[@class='catepro cateproA mt40']//p[@class='priceline']
+ÏÞ¹º	//div[@class='catepro cateproA mt40']//p[@class='title']//@href	//div[@class='goods_all']//div[@class='goods_info']//span[@class='godds_cnts_tips']

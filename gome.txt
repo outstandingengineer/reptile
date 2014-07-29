@@ -1,0 +1,5 @@
+##¹úÃÀ
+;;url	http://www.gome.com.cn/category/cat10000054.html
+name	//div[@class='result-wrap ']//h2[@class='name']//a[@title]
+price	//div[@id='plist']//div[@class='pricebox clearfix']/span[@yhdprice]
+×ÓÍø	//div[@id='plist']//p[@class='title']//@href

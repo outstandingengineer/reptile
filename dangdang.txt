@@ -1,0 +1,5 @@
+##µ±µ±
+;;url	http://category.dangdang.com/cp01.05.16.00.00.00.html
+name	//div[@class='book_shoplist']//div[@class='inner']//p[@class='name']
+price	//div[@class='book_shoplist']//div[@class='inner']/p[@class='price']/span[@class='price_n']
+×ÓÍø	//div[@class='book_shoplist']//div[@class='inner']//p[@class='name']//@href

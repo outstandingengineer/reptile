@@ -19,12 +19,10 @@ public class main {
 //		xindan();
 //		amazon();
 //		dangdang();
-//		suning2();
 //		tmall();
 //		yhd();
 //		guomei();
-		//test
-		yixun();
+//		yixun();
 		}
 	
 	public static void jingdong() throws Exception {
@@ -41,6 +39,20 @@ public class main {
 		webClient.closeAllWindows();
 		}
 	}
+	
+	public static void jingdongtotal() throws Exception {
+		final WebClient webClient=new WebClient(BrowserVersion.CHROME);
+		webClient.getOptions().setJavaScriptEnabled(true);
+		webClient.getOptions().setCssEnabled(false);
+		HtmlPage page = (HtmlPage) webClient.getPage("http://www.jd.com/");
+		for(int i=0;i<(page.getByXPath("//div[@id='_JD_ALLSORT']//span[@data-split='1']/h3/a").size());i++){
+		final HtmlElement name = (HtmlElement) page.getByXPath("//div[@id='_JD_ALLSORT']//span[@data-split='1']/h3/a").get(i);
+		String link=name.getAttribute("href");
+		System.out.println(name.asText()+link);
+		webClient.closeAllWindows();
+		}
+	}
+	
 	public static void xindan() throws Exception {
 		final WebClient webClient=new WebClient(BrowserVersion.CHROME);
 		webClient.getOptions().setJavaScriptEnabled(false);
@@ -52,6 +64,19 @@ public class main {
 			final HtmlElement href=(HtmlElement) name.getElementsByTagName("a").get(0);
 			String link=href.getAttribute("href");
 			System.out.println(name.asText()+"---" +price.asText()+"  link  "+link);
+			webClient.closeAllWindows();
+		}
+	}
+	
+	public static void xindantotal() throws Exception {
+		final WebClient webClient=new WebClient(BrowserVersion.CHROME);
+		webClient.getOptions().setJavaScriptEnabled(false);
+		webClient.getOptions().setCssEnabled(false);
+		HtmlPage page = (HtmlPage) webClient.getPage("http://www.newegg.cn/");
+		for(int i=0;i<(page.getByXPath("//div[@class='menulist']//li[@class='item']//div[@class='ddwrap']//table[@class='ddwrap_brand_table']//tbody/tr/td/a").size());i++){
+			final HtmlElement name = (HtmlElement) page.getByXPath("//div[@class='menulist']//li[@class='item']//div[@class='ddwrap']//table[@class='ddwrap_brand_table']//tbody/tr/td/a").get(i);
+			String link=name.getAttribute("href");
+			System.out.println(name.asText()+"  link  "+link);
 			webClient.closeAllWindows();
 		}
 	}
@@ -114,6 +139,7 @@ public class main {
 			System.out.println(name.asText()+"---" +price.asText());
 			webClient.closeAllWindows();
 		}
+	
 	
 	public static void tmall() throws Exception {
 		final WebClient webClient=new WebClient(BrowserVersion.CHROME);

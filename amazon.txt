@@ -1,0 +1,5 @@
+##ÑÇÂíÑ·
+;;url	http://www.amazon.cn/%E8%B6%85%E6%9E%81%E6%9C%AC/b/ref=sa_menu_office_l3_b148770071?ie=UTF8&node=148770071
+name	//div[@id='mainResults']//span[@class='lrg']
+price	//div[@id='mainResults']//span[@class='bld lrg red']
+×ÓÍø	//div[@id='mainResults']//h3[@class='newaps']//@href

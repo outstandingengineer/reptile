@@ -1,0 +1,5 @@
+##Ò»ºÅµê
+;;url	http://www.yhd.com/ctg/s2/c21969-0/?tc=0.0.16.CatMenu_Site_100000003_6884_784.1699&tp=1.0.15.0.1084.TNr4As
+name	//div[@id='plist']//p[@class='title']
+price	//div[@id='plist']//div[@class='pricebox clearfix']/span[@yhdprice]
+×ÓÍø	//div[@id='plist']//p[@class='title']//@href

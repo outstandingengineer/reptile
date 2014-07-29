@@ -1,0 +1,5 @@
+##рвя╦
+;;url	http://searchex.yixun.com/html?YTAG=2.1159614045055&&attr=55e7543&path=705882t705894&area=1
+name	//div[@class='goods']//div[@class='mod_goods_info']//p[@class='mod_goods_tit']
+price	//div[@class='goods']//div[@class='mod_goods_info']/p[@class='mod_goods_price']//span[@class='mod_price']/span
+всмЬ	//div[@class='goods']//div[@class='mod_goods_info']//p[@class='mod_goods_tit']//@href

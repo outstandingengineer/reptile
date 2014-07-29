@@ -22,6 +22,9 @@ import com.gargoylesoftware.htmlunit.html.HtmlDivision;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
+/*
+ * 如果要读取京东数据，第56行代码需要设置为true
+ */
 public class Ant {
 	ArrayList<String> title ;
 	ArrayList<ArrayList<String>> value;
@@ -29,7 +32,7 @@ public class Ant {
 	
 	public static void main(String args[]){
 		Ant ant = new Ant();
-		ant.readFromFile("test.txt");
+		ant.readFromFile("newegg.txt");
 		ant.printValue();
 	}
 	
@@ -50,7 +53,7 @@ public class Ant {
 						value = new ArrayList<ArrayList<String>>();
 						webClient = new WebClient(
 								BrowserVersion.CHROME);
-						webClient.getOptions().setJavaScriptEnabled(true);
+						webClient.getOptions().setJavaScriptEnabled(false);//京东需要设置此处为true
 						webClient.getOptions().setCssEnabled(false);
 						// 增加不显示的警告的方法
 						webClient.getOptions().setThrowExceptionOnScriptError(false);
